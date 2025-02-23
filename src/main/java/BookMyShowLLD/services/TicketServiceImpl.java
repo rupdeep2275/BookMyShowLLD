@@ -5,7 +5,7 @@ import BookMyShowLLD.models.*;
 import BookMyShowLLD.repositories.ShowSeatRepository;
 import BookMyShowLLD.repositories.TicketRepository;
 import BookMyShowLLD.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,21 +15,14 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TicketServiceImpl implements TicketService{
 
-    private ShowSeatRepository showSeatRepository;
+    private final ShowSeatRepository showSeatRepository;
 
-    private TicketRepository ticketRepository;
+    private final TicketRepository ticketRepository;
 
-    private UserRepository userRepository;
-
-    @Autowired
-    public TicketServiceImpl(ShowSeatRepository showSeatRepository, TicketRepository ticketRepository, UserRepository userRepository) {
-        this.showSeatRepository = showSeatRepository;
-        this.ticketRepository = ticketRepository;
-        this.userRepository = userRepository;
-    }
-
+    private final UserRepository userRepository;
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
     public Ticket bookTicket(List<Integer> showSeatIds, int userId) throws Exception{

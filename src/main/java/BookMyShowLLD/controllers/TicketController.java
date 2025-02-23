@@ -5,18 +5,14 @@ import BookMyShowLLD.dtos.BookTicketResponseDTO;
 import BookMyShowLLD.dtos.ResponseStatus;
 import BookMyShowLLD.models.Ticket;
 import BookMyShowLLD.services.TicketService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@RequiredArgsConstructor
 public class TicketController {
 
-    private TicketService ticketService;
-
-    @Autowired
-    public TicketController(TicketService ticketService) {
-        this.ticketService = ticketService;
-    }
+    private final TicketService ticketService;
 
     public BookTicketResponseDTO bookTicket(BookTicketRequestDTO requestDTO){
         BookTicketResponseDTO responseDTO = new BookTicketResponseDTO();

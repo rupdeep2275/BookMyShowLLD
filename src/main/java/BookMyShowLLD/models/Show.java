@@ -9,8 +9,8 @@ import java.util.List;
 @Data
 @Entity(name = "shows")
 public class Show extends BaseModel{
-//    @ManyToOne
-//    private Movie movie;
+    @ManyToOne
+    private Movie movie;
     private Date startTime;
     private Date endTime;
 
@@ -20,3 +20,4 @@ public class Show extends BaseModel{
     @ManyToOne
     private Screen screen;
 }
+
