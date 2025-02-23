@@ -3,19 +3,15 @@ package BookMyShowLLD.services;
 
 import BookMyShowLLD.models.User;
 import BookMyShowLLD.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
 
-    private UserRepository userRepository;
-
-    @Autowired
-    public UserServiceImpl(UserRepository userRespository) {
-        this.userRepository = userRespository;
-    }
+    private final UserRepository userRepository;
 
     @Override
     public User signupUser(String name, String email, String password) throws Exception {

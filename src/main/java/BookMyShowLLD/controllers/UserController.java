@@ -4,18 +4,14 @@ package BookMyShowLLD.controllers;
 import BookMyShowLLD.dtos.*;
 import BookMyShowLLD.models.User;
 import BookMyShowLLD.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
-    private UserService userService;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    private final UserService userService;
 
     public SignupUserResponseDTO signupUser(SignupUserRequestDTO requestDTO){
         SignupUserResponseDTO responseDTO = new SignupUserResponseDTO();
