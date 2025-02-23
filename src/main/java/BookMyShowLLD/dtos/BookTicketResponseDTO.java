@@ -1,9 +1,11 @@
 package BookMyShowLLD.dtos;
 
 import BookMyShowLLD.models.Ticket;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class BookTicketResponseDTO {
     private ResponseStatus status;
     private Ticket ticket;

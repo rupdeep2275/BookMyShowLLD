@@ -2,9 +2,11 @@ package BookMyShowLLD.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity(name = "users")
 public class User extends BaseModel{
 

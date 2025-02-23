@@ -2,13 +2,15 @@ package BookMyShowLLD.dtos;
 
 import BookMyShowLLD.models.Feature;
 import BookMyShowLLD.models.SeatType;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.util.Pair;
 
 import java.util.Date;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class CreateShowRequestDTO {
     private int movieId;
     private int userId;

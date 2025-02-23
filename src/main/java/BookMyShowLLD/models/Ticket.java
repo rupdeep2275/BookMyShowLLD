@@ -3,12 +3,14 @@ package BookMyShowLLD.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity(name = "tickets")
 public class Ticket extends BaseModel{
 

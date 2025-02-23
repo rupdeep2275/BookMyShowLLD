@@ -1,10 +1,12 @@
 package BookMyShowLLD.dtos;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class BookTicketRequestDTO {
     private List<Integer> showSeatIds;
     private int userId;

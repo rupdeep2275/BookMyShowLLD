@@ -1,12 +1,13 @@
 package BookMyShowLLD.dtos;
 
-import BookMyShowLLD.models.Show;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateShowResponseDTO {
+public class SignupUserResponseDTO {
     private ResponseStatus responseStatus;
-    private Show show;
+    private String name;
+    private String email;
+    private int userId;
 }
