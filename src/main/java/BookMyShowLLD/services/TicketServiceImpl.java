@@ -19,9 +19,7 @@ import java.util.List;
 public class TicketServiceImpl implements TicketService{
 
     private final ShowSeatRepository showSeatRepository;
-
     private final TicketRepository ticketRepository;
-
     private final UserRepository userRepository;
 
     @Transactional(isolation = Isolation.SERIALIZABLE)

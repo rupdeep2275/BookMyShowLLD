@@ -6,7 +6,7 @@ import BookMyShowLLD.models.Rating;
 
 public interface RatingsService {
 
-    public Rating rateMovie(int userId, int movieId, int rating) throws UserNotFoundException, MovieNotFoundException;
+    Rating rateMovie(int userId, int movieId, int rating, String review) throws UserNotFoundException, MovieNotFoundException;
 
-    public double getAverageRating(int movieId) throws MovieNotFoundException;
+    double getAverageRating(int movieId) throws MovieNotFoundException;
 }

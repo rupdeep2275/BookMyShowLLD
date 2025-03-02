@@ -14,4 +14,5 @@ public class Rating extends BaseModel{
     @ManyToOne
     private Movie movie;
     private int rating;
+    private String review;
 }

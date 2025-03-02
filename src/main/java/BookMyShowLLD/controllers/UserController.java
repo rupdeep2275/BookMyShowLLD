@@ -5,15 +5,20 @@ import BookMyShowLLD.dtos.*;
 import BookMyShowLLD.models.User;
 import BookMyShowLLD.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
 
-    public SignupUserResponseDTO signupUser(SignupUserRequestDTO requestDTO){
+    @PostMapping("/sign-up")
+    public SignupUserResponseDTO signupUser(@RequestBody SignupUserRequestDTO requestDTO){
         SignupUserResponseDTO responseDTO = new SignupUserResponseDTO();
         try {
             User user = userService.signupUser(requestDTO.getName(), requestDTO.getEmail(), requestDTO.getPassword());
@@ -27,7 +32,8 @@ public class UserController {
         return responseDTO;
     }
 
-    public LoginResponseDto login(LoginRequestDto requestDto){
+    @PostMapping("/login")
+    public LoginResponseDto login(@RequestBody LoginRequestDto requestDto){
         LoginResponseDto responseDto = new LoginResponseDto();
         try {
             boolean loggedIn = userService.login(requestDto.getEmail(), requestDto.getPassword());

@@ -9,4 +9,5 @@ public class RateMovieRequestDto {
     private int userId;
     private int movieId;
     private int rating;
+    private String review;
 }

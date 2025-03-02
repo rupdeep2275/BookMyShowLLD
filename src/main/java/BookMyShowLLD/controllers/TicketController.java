@@ -6,15 +6,20 @@ import BookMyShowLLD.dtos.ResponseStatus;
 import BookMyShowLLD.models.Ticket;
 import BookMyShowLLD.services.TicketService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/ticket")
 public class TicketController {
 
     private final TicketService ticketService;
 
-    public BookTicketResponseDTO bookTicket(BookTicketRequestDTO requestDTO){
+    @PostMapping("/book")
+    public BookTicketResponseDTO bookTicket(@RequestBody BookTicketRequestDTO requestDTO){
         BookTicketResponseDTO responseDTO = new BookTicketResponseDTO();
         try {
             Ticket ticket = ticketService.bookTicket(requestDTO.getShowSeatIds(), requestDTO.getUserId());

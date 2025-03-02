@@ -22,7 +22,7 @@ public class RatingsServiceImpl implements RatingsService {
     private final RatingRepository ratingRepository;
 
     @Override
-    public Rating rateMovie(int userId, int movieId, int rating) throws UserNotFoundException, MovieNotFoundException {
+    public Rating rateMovie(int userId, int movieId, int rating, String review) throws UserNotFoundException, MovieNotFoundException {
         User user = this.userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
         Movie movie = this.movieRepository.findById(movieId).orElseThrow(() -> new MovieNotFoundException("Movie not found"));
 
@@ -31,6 +31,7 @@ public class RatingsServiceImpl implements RatingsService {
         if(optionalRating.isPresent()){
             Rating ratingObj = optionalRating.get();
             ratingObj.setRating(rating);
+            ratingObj.setReview(review);
             return this.ratingRepository.save(ratingObj);
         }
 
@@ -38,6 +39,7 @@ public class RatingsServiceImpl implements RatingsService {
         ratingObj.setMovie(movie);
         ratingObj.setUser(user);
         ratingObj.setRating(rating);
+        ratingObj.setReview(review);
         return this.ratingRepository.save(ratingObj);
     }
 
