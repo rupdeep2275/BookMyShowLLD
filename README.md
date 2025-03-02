@@ -107,6 +107,13 @@ The system consists of the following database entities:
 
 Movies and shows **must be added to the database** before other functionalities (except user management) can work.
 
+## Design Patterns
+The current core functionalities implemented so far primarily follow the **MVC (Model-View-Controller) pattern** for structuring the application. Additionally, Spring Boot inherently follows the **Singleton pattern** for managing beans and services.
+
+1. **Factory Pattern** – Used for creating different user types (Admin, Customer) or ticket types (Standard, VIP).
+2. **Observer Pattern** – Handles notifications (SMS/Email) when a ticket is booked or canceled.
+3. **Strategy Pattern** – Enables flexible payment methods (Credit Card, UPI, PayPal).
+
 ## Future Enhancements
 - Implement payment gateway integration
 - Introduce role-based access control (RBAC)
