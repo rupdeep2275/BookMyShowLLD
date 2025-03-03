@@ -110,6 +110,8 @@ Movies and shows **must be added to the database** before other functionalities 
 ## Design Patterns
 The current core functionalities implemented so far primarily follow the **MVC (Model-View-Controller) pattern** for structuring the application. Additionally, Spring Boot inherently follows the **Singleton pattern** for managing beans and services.
 
+Several other design patterns can be beneficial for other functionalities, such as:
+
 1. **Factory Pattern** – Used for creating different user types (Admin, Customer) or ticket types (Standard, VIP).
 2. **Observer Pattern** – Handles notifications (SMS/Email) when a ticket is booked or canceled.
 3. **Strategy Pattern** – Enables flexible payment methods (Credit Card, UPI, PayPal).
